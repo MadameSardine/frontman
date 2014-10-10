@@ -10,6 +10,7 @@ env = ENV["RACK_ENV"] || "development"
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 require './app/models/user.rb'
+require './app/models/peep.rb'
 
 
 DataMapper.finalize
@@ -21,6 +22,7 @@ set :session_secret, 'super secret'
 use Rack::Flash
 
 get '/' do
+	@peeps = Peep.all
 	erb :index
 end
 
