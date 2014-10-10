@@ -18,8 +18,14 @@ feature "In order to user chitter I want to sign up" do
 
 	scenario "with an email that is already registered" do
 		expect{sign_up}.to change(User, :count).by(1)
-		expect{sign_up}.to change(User, :count).by(0)
+		expect{sign_up("test", "sardine@me.com", "test", "test")}.to change(User, :count).by(0)
 		expect(page).to have_content("This email is already taken")
+	end
+
+	scenario "with an username that is already registered" do
+		expect{sign_up}.to change(User, :count).by(1)
+		expect{sign_up("MadameSardine", "test@me.com", "test", "test")}.to change(User, :count).by(0)
+		expect(page).to have_content("This username is already taken")
 	end
 
 	def sign_up(username="MadameSardine",
