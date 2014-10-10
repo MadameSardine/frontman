@@ -18,22 +18,28 @@ DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super secret'
+use Rack::Flash
 
 get '/' do
 	erb :index
 end
 
 get '/users/new' do
-
+	@user = User.new
 	erb :"users/new"
 end
 
 post '/users' do 
-	user = User.create(:username => params[:username],
+	@user = User.new(:username => params[:username],
 				:email => params[:email],
 				:name => params[:name],
 				:password => params[:password],
 				:password_confirmation => params[:password_confirmation])
-	session[:user_id] = user.id
-	redirect to '/'
+	if @user.save
+		session[:user_id] = @user.id
+		redirect to '/'
+	else
+		flash[:notice] = "Sorry, your passwords don't match"
+		erb :"users/new"
+	end
 end

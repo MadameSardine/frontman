@@ -12,6 +12,8 @@ feature "In order to user chitter I want to sign up" do
 
 	scenario "with a password that doesn't match" do 
 		expect{sign_up('ifu','misifu@me.com', 'misifu' ,'password', 'wrong')}.to change(User, :count).by(0)
+		expect(current_path).to eq('/users')
+		expect(page).to have_content("Sorry, your passwords don't match")
 	end
 
 	def sign_up(username="MadameSardine",
@@ -30,3 +32,4 @@ feature "In order to user chitter I want to sign up" do
 	end
 
 end
+
