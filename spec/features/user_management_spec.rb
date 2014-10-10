@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "In order to user chitter I want to sign up" do 
 
@@ -28,21 +31,6 @@ feature "In order to user chitter I want to sign up" do
 		expect(page).to have_content("This username is already taken")
 	end
 
-	def sign_up(username="MadameSardine",
-				email="sardine@me.com",
-				name="Sardine Tin",
-				password="password",
-				password_confirmation="password")
-		visit '/users/new'
-		expect(page.status_code).to eq(200)
-		fill_in :username, :with => username
-		fill_in :email, :with => email
-		fill_in :name, :with => name
-		fill_in :password, :with => password
-		fill_in :password_confirmation, :with => password_confirmation
-		click_button "Sign up"
-	end
-
 end
 
 feature "In order to user chitter I want to log in" do
@@ -70,15 +58,22 @@ feature "In order to user chitter I want to log in" do
 		expect(page).not_to have_content("Welcome, MadameSardine")
 
 	end
-
-	def log_in(username, password)
-		visit '/sessions/new'
-		expect(page.status_code).to eq(200)
-		fill_in :username, :with => username
-		fill_in :password, :with => password
-		click_button "Log in"
-	end
-
-
 end
 
+feature "In order to get back to work, I want to log out" do
+
+	before(:each) do
+		User.create(:username =>"MadameSardine",
+				:email => "sardine@me.com",
+				:name => "Sardine Tin",
+				:password => "password",
+				:password_confirmation => "password")
+	end
+
+	scenario "while being logged in" do
+		log_in("MadameSardine", "password")
+		click_button "Log out"
+		expect(page).to have_content("Good bye!")
+		expect(page).not_to have_content("Wecome, MadameSardine")
+	end
+end

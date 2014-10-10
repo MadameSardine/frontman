@@ -5,6 +5,15 @@
 <body>
 	<% if current_user %>
 		<h1>Welcome, <%= current_user.username %></h1>
+		<form action="/sessions" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Log out">
+		</form>
+	<% end %>
+	<% if flash[:notice] %>
+		<div id="notice">
+			<%= flash[:notice] %>
+		</div>
 	<% end %>
 	<% if flash[:errors]  && !flash[:errors].empty? %>
 		Sorry, there were the following problems with the form.
