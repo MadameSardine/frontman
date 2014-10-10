@@ -24,6 +24,9 @@ feature "User adds a new peep" do
 		expect(Peep.count).to eq(1)
 		peep = Peep.first
 		expect(peep.content).to eq("Hello, world")
+		expect(peep.timestamp.nil?).to eq(false)
+		expect(peep.user.username).to eq("MadameSardine")
+		expect(peep.user.name).to eq("Sardine Tin")
 	end
 
 	def add_peep(content)

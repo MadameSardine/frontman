@@ -2,6 +2,7 @@
 	<% @peeps.each do |peep| %>
 		<li>
 			<p><%= peep.content %></p>
+			<p>Posted by <%= peep.user.username %> (<%= peep.user.name %>)</p>
 			<p>Submitted on <%= peep.timestamp %></p>
 		</li>
 	<% end %>

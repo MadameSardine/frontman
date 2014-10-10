@@ -74,7 +74,7 @@ end
 
 post '/peeps' do
 	content = params[:content]
-	Peep.create(:content => content)
+	Peep.create(:content => content, :user => current_user, :timestamp => Time.now)
 	redirect to ('/')
 end
 

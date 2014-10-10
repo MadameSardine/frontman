@@ -4,6 +4,8 @@ class Peep
 
 	property :id,			Serial
 	property :content, 		String
-	property :timestamp,	DateTime	
+	property :timestamp,	DateTime
+	has 1, :user, 	:through => Resource
+
 
 end
