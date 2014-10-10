@@ -67,3 +67,18 @@ delete '/sessions' do
 	session[:user_id] = nil
 	redirect to ('/')
 end
+
+get '/peeps/new' do
+	erb :"peeps/new"
+end
+
+post '/peeps' do
+	content = params[:content]
+	Peep.create(:content => content)
+	redirect to ('/')
+end
+
+
+
+
+
