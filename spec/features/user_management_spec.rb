@@ -45,3 +45,40 @@ feature "In order to user chitter I want to sign up" do
 
 end
 
+feature "In order to user chitter I want to log in" do
+
+	before(:each) do
+		User.create(:username =>"MadameSardine",
+				:email => "sardine@me.com",
+				:name => "Sardine Tin",
+				:password => "password",
+				:password_confirmation => "password")
+	end
+
+	scenario "with correct credentials" do
+		visit '/'
+		expect(page).not_to have_content("Welcome, MadameSardine")
+		log_in("MadameSardine", "password")
+		expect(page).to have_content("Welcome, MadameSardine")
+
+	end
+
+	scenario "with incorrect credentials" do
+		visit '/'
+		expect(page).not_to have_content("Welcome, MadameSardine")
+		log_in("MadameSardine", "wrong")
+		expect(page).not_to have_content("Welcome, MadameSardine")
+
+	end
+
+	def log_in(username, password)
+		visit '/sessions/new'
+		expect(page.status_code).to eq(200)
+		fill_in :username, :with => username
+		fill_in :password, :with => password
+		click_button "Log in"
+	end
+
+
+end
+
