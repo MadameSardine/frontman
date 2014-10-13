@@ -4,8 +4,9 @@ body {
 	background-color: rgb(217, 241, 250);
 }
 
-header {
-	margin-bottom: 2em;
+#header {
+	padding-bottom: 2em;
+	background-color: white;
 }
 
 header h1 {
@@ -39,7 +40,7 @@ header h3 {
 
 }
 
-nav {
+header nav {
 	text-align: center;
 	z-index: 1;
 
