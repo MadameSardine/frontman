@@ -1,0 +1,164 @@
+body {
+	text-align: center;
+	font-family: "Andale Mono", AndaleMono, monospace;
+}
+
+header {
+	margin-bottom: 2em;
+}
+
+header h1 {
+	font-size: 3.2em;
+	padding-top: 1em;
+	padding-bottom: 0.4em;
+	font-weight: bold;
+}
+
+header h2 {
+	font-size: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+header h3 {
+	font-size: 2.2em;
+	padding-top: 0.5em;
+	font-weight: 600;
+
+}
+
+
+#picture{
+	background: url('../images/tree.jpg');
+  	z-index: -1;   
+  	width: 100%;
+  	height: 100%;
+  	background-size: cover;
+  	background-repeat: none;
+  	text-align: center;
+
+}
+
+nav {
+	text-align: center;
+	z-index: 1;
+
+}
+
+nav ul {
+	display: inline;
+}
+
+#navright li {
+	float: right;
+	padding-right: 1.5em;
+}
+
+#navleft li {
+	float: left;
+	padding-left: 1.5em;
+}
+
+
+nav a {
+	font-weight: bold;
+}
+
+#signup {
+	text-align: left;
+	padding-left: 2em;
+	width: 25%;
+}
+
+#signup h1 {
+	margin-bottom: 1em;
+	font-size: 1.5em;
+}
+
+#signup input{
+	width: 20em;
+	height: 2em;
+}
+
+#signup p {
+	margin-bottom: 0.4em;
+	margin-top: 0.2em;
+}
+
+#flash {
+	padding-top: 2em;
+	width: 55%;
+	margin-left: 35%;
+}
+
+#flash ul {
+	display: inline;
+}
+
+#flash li {
+	float: left;
+	margin-left: 4em;
+}
+
+#logout input[type=submit] {
+	background-color: white;
+	padding: 5px 10px;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 4px;
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 1em;
+	color: rgb(86,17, 141);
+	font-weight: bold;
+	float: left;
+}
+
+.button {
+	font-size: 1em;
+	text-decoration: none;
+
+}
+
+#log_in {
+	width: 80%;
+	margin-left:10%; 
+}
+
+#bye {
+	float: left;
+	margin-left: 2em;
+	font-size: 1.4em;
+}
+
+#new-peep {
+	color: rgb(86,17, 141);
+}
+
+#new-peep input[type=text] {
+	font-size: 1em;
+	width: 50%;
+	height: 2em;
+}
+
+#new-peep input[type=submit] {
+	background-color: white;
+	border: solid 1px;
+	border-radius: 4px;
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 1em;
+	color: rgb(86,17, 141);
+}
+
+.peep {
+	background-color:white;
+	opacity: 0.8;
+	margin-bottom: 1em;
+}
+
+.peep h1 {
+	font-size: 1.4em;
+	margin-bottom: 0.4em;
+	padding-top: 0.4em;
+	padding-bottom: 0.2em;
+	font-weight: bold;
+}
+

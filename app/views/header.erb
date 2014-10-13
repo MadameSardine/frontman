@@ -1,11 +1,29 @@
+<h1>Chitter</h1>
 <% if current_user %>
-	<h1>Welcome, <%= current_user.username %></h1>
-	<form action="/sessions" method="post">
-		<input type="hidden" name="_method" value="delete">
-		<input type="submit" value="Log out">
-	</form>
-	<a href="/peeps/new">Post peep</a>
+	<h2>Welcome, <%= current_user.username %></h2>
+	<h3><a href="/peeps/new" class='button'>Post peep</a></h3>
+	<nav id="navleft">
+		<ul>
+			<li id="logout">
+				<form action="/sessions" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="Log out">
+				</form>
+			</li>
+		</ul>
+	</nav>
+	
 <% else %>
-	<li><a href='/sessions/new' id='sign-in' class='button'>Sign in</a></li>
-	<li><a href='/users/new' id='sign-up' class='button'>Sign up</a></li>
+	<h2>Please sign up or log in to post peeps</h2>
+	<nav id="navright">
+		<ul>
+			<li><a href='/sessions/new' id='sign-in' class='button'>Log in</a></li>
+			<li><a href='/users/new' id='sign-up' class='button'>Sign up</a></li>
+		</ul>
+	</nav>
 <% end %>
+<article id="bye">
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<% end %>
+</article>
