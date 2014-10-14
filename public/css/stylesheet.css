@@ -30,7 +30,8 @@ header h3 {
 
 
 #picture{
-	background-image: url(/images/tree.jpg);
+/*	background-image: url(/images/tree.jpg);*/
+background-color: red;
   	z-index: -1;   
   	width: 100%;
   	height: 300%;
