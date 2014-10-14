@@ -8,12 +8,13 @@
 
 	<header id="header">
 		<%= partial :header %>
+	<article id="flash">
+			<%= partial :flash %>
+		</article>
 	</header>
 	
 	<main id="picture">
-		<article id="flash">
-			<%= partial :flash %>
-		</article>
+		
    		<%= yield %>
    	</main>
 	   

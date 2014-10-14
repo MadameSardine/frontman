@@ -5,12 +5,14 @@ body {
 }
 
 #header {
-	padding-bottom: 2em;
+	padding-bottom: 3em;
 	background-color: white;
+	text-align: left;
+	padding-left: 3em;
 }
 
 header h1 {
-	font-size: 3.2em;
+	font-size: 3.5em;
 	padding-top: 1em;
 	padding-bottom: 0.4em;
 	font-weight: bold;
@@ -19,12 +21,14 @@ header h1 {
 header h2 {
 	font-size: 1.2em;
 	margin-bottom: 0.4em;
+	color: rgb(86,17, 141);
 }
 
 header h3 {
 	font-size: 2.2em;
 	padding-top: 0.5em;
 	font-weight: 600;
+	text-align: center;
 
 }
 
@@ -36,6 +40,7 @@ header h3 {
   	height: 300%;
   	background-size: cover;
   	text-align: center;
+  	padding-top: 1em;
 
 }
 
@@ -49,56 +54,67 @@ nav ul {
 	display: inline;
 }
 
-#navright li {
+.navright li {
 	float: right;
 	padding-right: 1.5em;
 }
-
-#navleft li {
-	float: left;
-	padding-left: 1.5em;
-}
-
 
 nav a {
 	font-weight: bold;
 }
 
-#signup {
-	text-align: left;
-	padding-left: 2em;
+.form {
+	text-align: center;
 	width: 25%;
 }
 
-#signup h1 {
+.form h1 {
 	margin-bottom: 1em;
 	font-size: 1.5em;
 }
 
-#signup input{
+.form input{
 	width: 20em;
 	height: 2em;
 }
 
-#signup p {
-	margin-bottom: 0.4em;
-	margin-top: 0.2em;
+.form p {
+	margin-bottom: 0.8em;
+	margin-top: 0.4em;
 }
 
 #flash {
-	padding-top: 2em;
 	width: 55%;
 	margin-left: 35%;
+	color: red;
 }
 
 #flash ul {
-	display: inline;
+	display: inline-block;
 }
 
 #flash li {
-	float: left;
-	margin-left: 4em;
+	margin-left: 2em;
 }
+
+.form input[type=submit], .button {
+	background-color: rgb(219, 240, 248);
+	margin-top: 1em;
+	padding: 5px 10px;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 4px;
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 1em;
+	color: rgb(86,17, 141);
+	font-weight: bold;
+	width: 13.4em;
+}
+
+.form input[type=text], .form input[type=password] {
+	height: 2.5em;
+}
+
 
 #logout input[type=submit] {
 	background-color: white;
@@ -113,21 +129,30 @@ nav a {
 	float: left;
 }
 
-.button {
-	font-size: 1em;
-	text-decoration: none;
+#postpeep {
+	border: dotted ;
+	padding: 0.5em;
+	border-radius: 50px;
 
 }
 
-#log_in {
+.button, #postpeep {
+	font-size: 1em;
+	text-decoration: none;
+	color: rgb(86,17, 141);
+
+}
+
+.form {
 	width: 80%;
-	margin-left:10%; 
+	margin-left:3.2em; 
+	text-align: left;
 }
 
 #bye {
-	float: left;
-	margin-left: 2em;
-	font-size: 1.4em;
+	text-align: center;
+	margin-left: 4em;
+	font-size: 2em;
 }
 
 #new-peep {
