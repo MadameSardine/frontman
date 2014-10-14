@@ -5,8 +5,6 @@ require 'sinatra/partial'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
-require_relative 'models/peep'
-require_relative 'models/user'
 
 require_relative 'controllers/application'
 require_relative 'controllers/peeps'
