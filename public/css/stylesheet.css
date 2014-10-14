@@ -30,7 +30,7 @@ header h3 {
 
 
 #picture{
-	background-image: url("http://astromatrix.org/Content/Images/Objects/Bird.jpg");
+	background-image: url("/images/tree.jpg");
   	z-index: -1;   
   	width: 100%;
   	height: 300%;
