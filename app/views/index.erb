@@ -5,6 +5,13 @@
 				<h1><%= peep.content %></h1>
 				<p>Posted by <%= peep.user.username %> (<%= peep.user.name %>)</p>
 				<p>Submitted on <%= peep.timestamp %></p>
+				<p>
+					<form action="peeps/reply" method="post">Want to reply?
+					<input type="text" name="reply">
+					<input type="submit" value="Shoot">
+					</form>
+					
+				</p>
 			</li>
 		<% end %>
 	</ul>
