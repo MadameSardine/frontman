@@ -15,7 +15,7 @@ feature "User browses the list of peeps" do
 	scenario "when opening the home page" do
 		visit '/'
 		expect(page).to have_content("Today is a good day")
-		expect(page).to have_content("Submitted on 2014-10-10T01:00:00+01:00")
+		expect(page).to have_content("on 2014-10-10T01:00:00+01:00")
 	end
 
 	scenario "and can see who posted the peep" do

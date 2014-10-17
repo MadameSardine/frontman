@@ -37,16 +37,11 @@ feature "User wants to reply to peeps" do
 		expect(page).to have_content("Hello")
 	end
 
-	scenario "should see who posted reply" do
+	scenario "should see who posted reply and when" do
 		log_in("MadameSardine", "password")
 		fill_in :reply, :with => "Hello"
 		click_button 'Shoot'
-		expect(page).to have_content("posted by MadameSardine")
+		expect(page).to have_content("Posted by MadameSardine on")
 	end
-
-
-
-
-
 
 end

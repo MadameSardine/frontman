@@ -3,13 +3,12 @@
 		<% @peeps.each do |peep| %>
 			<li class="peep">
 				<h1><%= peep.content %></h1>
-				<p>Posted by <%= peep.user.username %> (<%= peep.user.name %>)</p>
-				<p>Submitted on <%= peep.timestamp %></p>
-				
+				<p>Posted by <%= peep.user.username %> (<%= peep.user.name %>) on <%= peep.timestamp %></p>
 				<% @replies = Reply.all(:peep_id => peep.id) %>
 				<% if @replies %>
 					<% @replies.each do |reply| %>
-					<p><%= reply.content %>, posted by <%= reply.user.username %></p>
+					<h2><%= reply.content %></h2>
+					<p>Posted by <%= reply.user.username %> on <%= reply.timestamp %></p>
 					<% end %>
 				<% end %>
 				<% if current_user %>
