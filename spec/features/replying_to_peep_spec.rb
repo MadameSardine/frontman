@@ -15,7 +15,7 @@ feature "User wants to reply to peeps" do
 	before(:each) {
 		User.create(:username =>"MadameSardine",
 				:email => "sardine@me.com",
-				:name => "Sardine Tin",
+				:name => "Sardine",
 				:password => "password",
 				:password_confirmation => "password")
 	}
@@ -41,7 +41,7 @@ feature "User wants to reply to peeps" do
 		log_in("MadameSardine", "password")
 		fill_in :reply, :with => "Hello"
 		click_button 'Shoot'
-		expect(page).to have_content("Posted by MadameSardine on")
+		expect(page).to have_content("Replied by MadameSardine (Sardine) on")
 	end
 
 end

@@ -178,13 +178,38 @@ nav a {
 	background-color:white;
 	opacity: 0.8;
 	margin-bottom: 1em;
+	font-size: 0.9em;
 }
 
 .peep h1 {
 	font-size: 1.4em;
 	margin-bottom: 0.4em;
-	padding-top: 0.4em;
+	padding-top: 0.6em;
 	padding-bottom: 0.2em;
 	font-weight: bold;
 }
+
+.peep h2 {
+	font-size: 1.4em;
+	margin-bottom: 0.4em;
+	padding-top: 0.6em;
+	padding-bottom: 0.2em;
+	font-weight: bold;
+}
+
+.peep form {
+	margin-top :1em;
+	font-size: 1.2em;
+}
+
+.peep input[type=submit] {
+	background-color: white;
+	border: solid 1px;
+	border-radius: 4px;
+	font-family: "Andale Mono", AndaleMono, monospace;
+	font-size: 0.8em;
+	color: rgb(86,17, 141);
+}
+
+
 

@@ -7,8 +7,8 @@
 				<% @replies = Reply.all(:peep_id => peep.id) %>
 				<% if @replies %>
 					<% @replies.each do |reply| %>
-					<h2><%= reply.content %></h2>
-					<p>Posted by <%= reply.user.username %> on <%= reply.timestamp %></p>
+					<h2 class="reply"><%= reply.content %></h2>
+					<p class="reply">Replied by <%= reply.user.username %> (<%= reply.user.name %>) on <%= reply.timestamp %></p>
 					<% end %>
 				<% end %>
 				<% if current_user %>
