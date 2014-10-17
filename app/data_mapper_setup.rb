@@ -1,8 +1,6 @@
-require './app/models/user'
-require './app/models/peep'
-
 require_relative 'models/peep'
 require_relative 'models/user'
+require_relative 'models/reply'
 
 env = ENV["RACK_ENV"] || "development"
 

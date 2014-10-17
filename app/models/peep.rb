@@ -5,6 +5,7 @@ class Peep
 	property :id,			Serial
 	property :content, 		String
 	property :timestamp,	DateTime
+	has n, 	:replies
 	belongs_to :user
 
 

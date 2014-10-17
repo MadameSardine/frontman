@@ -5,11 +5,19 @@
 				<h1><%= peep.content %></h1>
 				<p>Posted by <%= peep.user.username %> (<%= peep.user.name %>)</p>
 				<p>Submitted on <%= peep.timestamp %></p>
+				
+				<% @replies = Reply.all(:peep_id => peep.id) %>
+				<% if @replies %>
+					<% @replies.each do |reply| %>
+					<p><%= reply.content %>, posted by <%= reply.user.username %></p>
+					<% end %>
+				<% end %>
 				<% if current_user %>
 					<p>
 						<form action="peeps/reply" method="post">Want to reply?
 						<input type="text" name="reply">
 						<input type="submit" value="Shoot">
+						<input type="hidden" name="peep_id" value="<%=peep.id %>">
 						</form>
 					</p>
 				<% end %>

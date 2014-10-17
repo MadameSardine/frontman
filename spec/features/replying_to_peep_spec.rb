@@ -30,6 +30,20 @@ feature "User wants to reply to peeps" do
 		expect(page).not_to have_content("reply")
 	end
 
+	scenario "should see reply" do 
+		log_in("MadameSardine", "password")
+		fill_in :reply, :with => "Hello"
+		click_button 'Shoot'
+		expect(page).to have_content("Hello")
+	end
+
+	scenario "should see who posted reply" do
+		log_in("MadameSardine", "password")
+		fill_in :reply, :with => "Hello"
+		click_button 'Shoot'
+		expect(page).to have_content("posted by MadameSardine")
+	end
+
 
 
 

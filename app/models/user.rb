@@ -13,6 +13,7 @@ class User
 	property :email,			String,		:unique => true,	:message => "This email is already taken"
 	property :password_digest,	Text
 	has n, :peeps
+	has n, :replies
 
 	def password=(password)
 		@password = password
