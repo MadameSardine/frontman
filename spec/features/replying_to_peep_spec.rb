@@ -25,7 +25,11 @@ feature "User wants to reply to peeps" do
 		expect(page).to have_content("reply")
 	end
 
-	
+	scenario "not possible when not logged in" do 
+		visit '/'
+		expect(page).not_to have_content("reply")
+	end
+
 
 
 
