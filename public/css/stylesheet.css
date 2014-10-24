@@ -30,6 +30,7 @@ a{
 	z-index: 1000;
 	border-bottom: 1px solid rgba(0,0,0,0.05);
 	display: inline-block;
+	padding-bottom: 0.5em;
 
 }
 
@@ -65,6 +66,15 @@ a{
 	float: right;
 	margin-right: 10%;
 }
+.right_nav .my_picture{
+	width: 32px;
+	height: 32px;
+	border: 0;
+	opacity: 1;
+	margin-bottom: 5em;
+	border: 1px solid #e1e8ed;
+	border-radius: 4px
+}
 
 #post, #validate_peep{
 	display: block;
@@ -72,7 +82,7 @@ a{
 	font-weight: 500;
 	color: #fff;
 	cursor: pointer;
-	height: 15px;
+	height: 20px;
 	width: 50px;
 	opacity: 1;
 	background-color: #0084B4;
@@ -90,7 +100,7 @@ a{
 }
 #user_input{
 	position: relative;
-	display: block;
+	/*display: block;*/
 	float: left;
 	width: 25%;
 	height: 18em;
@@ -108,23 +118,39 @@ a{
 	border-radius: 6px 6px 0px 0px;
 }
 
+#user_input .my_picture{
+	border-radius: 7px;
+	height: 72px;
+	width: 72px;
+	border: 2px solid #fff;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #fff;
+	z-index: 1000;
+	position: relative;
+	margin-top: -3em;
+	margin-left: 0.5em;
+}
+
 #user_info{
 	height: 8em;
 	padding: 0.5em;
-	padding-left: 7em;
 }
 
-#user_info h1{
+#identity{
+	position: relative;
+	margin-left: 7em;
+	margin-top: -2em;
+}
+#identity h1{
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 21px;
-
 }
 
-#user_info h2{
+#identity h2{
 	font-size: 12px;
-	padding-right: 5px;
-	color: #66757f
+	color: #66757f;
 }
 
 #peep_box{
@@ -172,6 +198,58 @@ a{
 	color: #292f33;
 	font-size: 14px;
 	line-height: 18px;
+	
+}
+
+#peeps h1{
+	color: #66757f;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 22px;
+	min-height: 20px;
+	padding: 12px;
+	background-color: #fff;
+	border-bottom: 1px solid #e1e8ed;
+	border-radius: 5px 5px 0 0;
+}
+
+#peeps h2 {
+	position: relative;
+	top: -1px;
+	font-size: 13px;
+	display: block;
+	padding: 10px 1px;
+	cursor: pointer;
+	text-align: center;
+	font-weight: normal;
+	background-color: #f5f8fa;
+	border-top: 1px solid #e1e8ed;
+	border-bottom: 1px solid #e1e8ed;
+	z-index: 2;
+}
+
+.peep_list{
+	border-top: 1px solid #e1e8ed;
+	border-bottom: 1px solid #e1e8ed;
+	padding: 10px 1px 10px 20px;
+
+}
+
+.peep_list header{
+	display: inline-block;
+}
+
+.peep_list header h3{
+	float: left;
+	margin-right: 5px;
+}
+
+.full_name{
+	font-weight: bold;
+	color: #292f33;
+}
+
+.peep_content{
 	
 }
 

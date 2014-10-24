@@ -16,7 +16,7 @@
 				</nav>
 				<nav class="right_nav">
 					<ul>
-						<li>profile image</li>
+						<li><img src="./public/images/profile_picture.jpg" class="my_picture"/></li>
 						<li id="post">Post</li>
 					</ul>
 				</nav>
@@ -26,8 +26,11 @@
 			<section id="user_input">
 				<header></header>
 				<article id="user_info">
+					<img src="./public/images/profile_picture.jpg" class="my_picture"/>
+					<article id="identity">
 					<h1>MadameSardine</h1>
 					<h2>@MadameSardine</h2>
+					</article>
 				</article>
 				<article id="peep_box">
 					<input type="text" placeholder="Compose new peep" id="new_peep_content"/>
@@ -35,6 +38,15 @@
 				</article>
 			</section>
 			<section id="peeps">
+				<h1>Peeps</h1>
+				<h2></h2>
+				<article class="peep_list">
+					<header>
+						<h3 class="full_name">Full name</h3>
+						<h3 class="username">@username</h3>
+					</header>
+					<p class="peep_content">blablablabla</p>
+				</article>
 			</section>
 		</main>
 		<template>
