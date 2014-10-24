@@ -49,11 +49,33 @@
 				</article>
 			</section>
 		</main>
-		<template>
+		<template id="peepTemplate">
+			<article>
+				<header>
+					<h3 class="full_name">{{name}}</h3>
+					<h3 class="username">{{username}}</h3>
+				</header>
+				<p class="peep_content">{{peepContent}}</p>
+			</article>
 		</template>
 		<script type="text/javascript" src="./public/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="./public/handlebars.js"></script>
-		<script type="text.javascript">
+		<script type="text/javascript">
+			$('#validate_peep').on('click',function(){
+
+				var peep_content = $('#new_peep_content').val();
+				var source = $('#peepTemplate').html();
+				var template = Handlebars.compile(source);
+				var context = {
+				name: "Sandrine",
+				username: "@MadameSardine",
+				peepContent: peep_content
+				};
+				$('#peeps').append(template(context));
+				$('#peeps article').last().addClass('peep_list');
+				$('#new_peep_content').val('');
+			});
+
 		</script>
 	</body>
 </html>
