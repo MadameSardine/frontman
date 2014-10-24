@@ -28,9 +28,9 @@ a{
 	left: 0;
 	width: 100%;
 	z-index: 1000;
-	border-bottom: 1px solid rgba(0,0,0,0.05);
 	display: inline-block;
 	padding-bottom: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 
 }
 
@@ -60,6 +60,51 @@ a{
 	height: 46px;
 	line-height: 1;
 	padding: 0 14px 0 4px;
+	margin-right: 20px;
+}
+
+.top_nav a{
+	border-bottom: 4px solid #0084b4;
+	transition: all .15s ease-in-out;
+}
+
+#home_icon{
+	float: left;
+	margin: 11px 0 0 10px;
+	width: 23px;
+	height: 23px;
+	background: transparent;
+	display: inline-block;
+	font-style: normal;
+	position: relative;
+	margin-top: -5px;
+}
+
+.login_nav{
+	margin-left: 38.5%;
+}
+
+.login_nav li{
+	margin-right: 1px;
+}
+
+#log_username, #log_password {
+	color: #8899a6;
+	font-size: 12px;
+	padding: 6px 8px 5px;
+	background-color: #fff;
+	border: 1px solid #e1e8ed;
+	border-color: rgba(0,132,180,0.25);
+	border-radius: 5px;
+	max-height: 19px;
+	min-height: 19px;
+	word-wrap: normal;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 16px;
+	text-shadow: none;
+
 }
 
 .right_nav{
@@ -94,13 +139,18 @@ a{
 	
 }
 
+
+
+#validate_peep{
+	height: 15px;
+}
+
 #main{
 	margin-top: 5%;
 	margin-left: 10%;
 }
 #user_input{
 	position: relative;
-	/*display: block;*/
 	float: left;
 	width: 25%;
 	height: 18em;
@@ -129,7 +179,7 @@ a{
 	z-index: 1000;
 	position: relative;
 	margin-top: -3em;
-	margin-left: 0.5em;
+	margin-left: 6px;
 }
 
 #user_info{
@@ -163,6 +213,8 @@ a{
 	border-radius: 0 0 5px 5px;
 
 }
+
+
 
 #new_peep_content{
 	color: #8899a6;
@@ -198,6 +250,7 @@ a{
 	color: #292f33;
 	font-size: 14px;
 	line-height: 18px;
+	border-color: rgba(0,132,180,0.25);
 	
 }
 
@@ -249,7 +302,7 @@ a{
 	color: #292f33;
 }
 
-.peep_content{
-	
+#reply_button{
+	margin-top: 3px;
 }
 

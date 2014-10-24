@@ -10,8 +10,15 @@
 			<nav class="top_nav">
 				<nav class="left_nav">
 					<ul>
-						<li id="home">Home</li>
+						<li id="home"><img src="./public/images/home.png" id="home_icon"/>Home</li>
 						<li>Discover</li>
+					</ul>
+				</nav>
+				<nav class="login_nav">
+					<ul>
+						<li><input type="text" placeholder="Username" id="log_username"/></li>
+						<li><input type="text" placeholder="Password" id="log_password"/></li>
+						<li><a href="#" id="login_button">login</a></li>
 					</ul>
 				</nav>
 				<nav class="right_nav">
@@ -56,25 +63,36 @@
 					<h3 class="username">{{username}}</h3>
 				</header>
 				<p class="peep_content">{{peepContent}}</p>
+				<a href="#" id="reply_button">Reply</a>
 			</article>
 		</template>
 		<script type="text/javascript" src="./public/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="./public/handlebars.js"></script>
 		<script type="text/javascript">
-			$('#validate_peep').on('click',function(){
+
+			$('#login_button').on('click', function(){
+				var user_name = $('#log_username').val();
+
+				$('#validate_peep').on('click',function(){
 
 				var peep_content = $('#new_peep_content').val();
+				
 				var source = $('#peepTemplate').html();
 				var template = Handlebars.compile(source);
 				var context = {
 				name: "Sandrine",
-				username: "@MadameSardine",
+				username: user_name,
 				peepContent: peep_content
 				};
 				$('#peeps').append(template(context));
 				$('#peeps article').last().addClass('peep_list');
 				$('#new_peep_content').val('');
+				
 			});
+				$('#log_username').val('');
+				$('#log_password').val('');
+			});
+			
 
 		</script>
 	</body>
