@@ -8,91 +8,24 @@ body{
 	color: #292f33;
 	font-size: 14px;
 	line-height: 18px;
-	overflow-y: scroll;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
-}
-a{
-	text-decoration: none;
 }
 
-.top_nav{
-	background-color: #fff;
-	height: 46px;
-	text-align: center;
-	border-bottom: 1px solid rgba(0,0,0,0.15);
-	height: 46px;
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1000;
-	display: inline-block;
-	padding-bottom: 0.5em;
-	border-bottom: 1px solid rgba(0,0,0,0.15);
-
-}
-
-
-.left_nav ul, right_nav ul{
-	margin: 0;
-	list-style: none;
-	padding: 0;
-	display: block;
-	list-style-type: disc;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
-	text-align: center;
-	padding-left: 10%;
-}
-.top_nav li{
-	float: left;
-	color: #66757f;
-	overflow: hidden;
-	position: relative;
-	display: block;
-	font-size: 13px;
-	font-weight: 500;
-	height: 46px;
-	line-height: 1;
-	padding: 0 14px 0 4px;
-	margin-right: 20px;
-}
-
-.top_nav a{
-	border-bottom: 4px solid #0084b4;
-	transition: all .15s ease-in-out;
-}
-
-#home_icon{
-	float: left;
-	margin: 11px 0 0 10px;
-	width: 23px;
-	height: 23px;
-	background: transparent;
-	display: inline-block;
-	font-style: normal;
-	position: relative;
-	margin-top: -5px;
-}
+/*===========LOGIN====================*/
 
 .login_nav{
-	margin-left: 38.5%;
+	display: none;
 }
 
 .login_nav li{
 	margin-right: 1px;
 }
 
+
 #log_username, #log_password {
 	color: #8899a6;
 	font-size: 12px;
 	padding: 6px 8px 5px;
-	background-color: #fff;
 	border: 1px solid #e1e8ed;
 	border-color: rgba(0,132,180,0.25);
 	border-radius: 5px;
@@ -104,30 +37,105 @@ a{
 	text-overflow: ellipsis;
 	line-height: 16px;
 	text-shadow: none;
-
 }
+
+
+/*===========TOP NAVIGATION ======*/
+
+#top_bar{
+	background-color: #fff;
+	height: 46px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;	
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+	overflow: hidden;
+}
+
+.top_nav{
+	min-width: 590px;
+	max-width: 890px;
+	width: auto;
+	background: transparent;
+	height: 46px;
+	position: relative;
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	z-index: 2000;
+}
+
+.top_nav li{
+	float: left;
+	color: #66757f;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	font-size: 13px;
+	font-weight: 500;
+	height: 46px;
+	line-height: 1;
+	text-align: center;
+	padding: 15px 10px 0px 0px;
+}
+
+.top_nav li a{
+	text-decoration: none;
+	color: #66757f;
+	padding: 0 14px 14px 4px;
+	position: relative;
+	display: block;
+}
+
+.top_nav a:hover{
+	border-bottom: 4px solid #0084b4;
+}
+
+.left_nav{
+	float: left;
+	text-align: left;
+	margin-left: 1em;
+}
+
+#home_icon{
+	float: left;
+	width: 23px;
+	height: 23px;
+	background: transparent;
+	display: inline-block;
+	font-style: normal;
+	position: relative;
+	margin-top: -5px;
+}
+
 
 .right_nav{
 	float: right;
-	margin-right: 10%;
+	text-align: left;
 }
 .right_nav .my_picture{
 	width: 32px;
 	height: 32px;
 	border: 0;
 	opacity: 1;
-	margin-bottom: 5em;
+	position: relative;
+	margin-top: -6px;
 	border: 1px solid #e1e8ed;
 	border-radius: 4px
 }
 
-#post, #validate_peep{
+#post{
 	display: block;
+	position: relative;
+	margin-top: 9px;
 	font-size: 13px;
 	font-weight: 500;
 	color: #fff;
 	cursor: pointer;
-	height: 20px;
+	height: 21px;
 	width: 50px;
 	opacity: 1;
 	background-color: #0084B4;
@@ -139,27 +147,36 @@ a{
 	
 }
 
-
-
-#validate_peep{
-	height: 15px;
+/*==========MAIN CONTENT==========*/
+#main {
+	height: 100%;
+	display: block;
+	width: 100%;
+	overflow: scroll;
+	position: relative;
+	margin: auto;
+  	position: absolute;
+  	top: 0; left: 0; bottom: 0; right: 0;
 }
 
-#main{
-	margin-top: 5%;
-	margin-left: 10%;
+#content{
+	padding: 56px 14px 15px;
+	margin: 0 auto;
+	min-height: 0;
+	width: 890px;
 }
+
+/*===========LEFT SIDE BAR ======*/
 #user_input{
 	position: relative;
 	float: left;
-	width: 25%;
-	height: 18em;
-	margin-left: 1%;
+	width: 290px;
 	border-radius: 6px;
-	background-color: #fff;
 	color: #292f33;
 	font-size: 14px;
 	line-height: 18px;
+	overflow: hidden;
+	z-index: 2;
 }
 
 #user_input header{
@@ -185,6 +202,7 @@ a{
 #user_info{
 	height: 8em;
 	padding: 0.5em;
+	background-color: #fff;
 }
 
 #identity{
@@ -211,10 +229,7 @@ a{
 	padding: 12px;
 	padding: 10px 12px;
 	border-radius: 0 0 5px 5px;
-
 }
-
-
 
 #new_peep_content{
 	color: #8899a6;
@@ -236,21 +251,30 @@ a{
 }
 
 #validate_peep{
-	float: right;
-	padding-bottom: 10px;
+	text-decoration: none;
+	color: #66757f;
+	padding: 0 14px 0 4px;
+	position: relative;
+	
 }
 
+#peep_box a:hover{
+	border-bottom: 4px solid #0084b4;
+}
+
+/*=========== MAIN PEEPS ======*/
+
 #peeps{
-	width: 60%;
-	width: 56%;
-	margin-left: 32%;
-	min-height: 40em;
+	width: 590px;
+	float: right;
+	display: block;
 	border-radius: 6px;
 	background-color: #fff;
 	color: #292f33;
 	font-size: 14px;
 	line-height: 18px;
 	border-color: rgba(0,132,180,0.25);
+	overflow: hidden;
 	
 }
 
@@ -305,4 +329,6 @@ a{
 #reply_button{
 	margin-top: 3px;
 }
+
+
 
