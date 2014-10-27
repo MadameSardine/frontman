@@ -2,27 +2,36 @@ $( document ).ready(function() {
 	$('.logged_in_page').hide();
 
 	$('#sign_in_button').on('click',function(){
-		var username = $('#username_input').val();
+		var username_input = $('#username_input').val();
+		var password_input = $('#password_input').val();
+		var javascriptData = {"username": username_input, "password": password_input}
+		var data = JSON.stringify(javascriptData);
 
-		$.ajax({
-			url: '/api/session/' + username,
-			type: "GET",
+		var request = $.ajax({
+			url: '/api/sessions/',
+			type: "POST",
+			data: data,
 			dataType: 'json',
-			success: function(data){
-				alert('ok');
-				console.log(data);
-				$('.logged_out_page').slideup();
-				$('.logged_in_page').show();
-				var name = data("name")
-				$('#my_name').text(name);
-		      	$('#my_username').append(username);
+			contentType: 'application/json',
+			accepts: 'application/json'
+		});
+			request.done(function(data){
+				$.getJSON('/api/sessions/' + username_input, function (data){
 
-		      	$('#validate_peep').on('click',function(){
+					console.log(data);
+					$('.logged_out_page').hide();
+					$('.logged_in_page').show();
+					var name = data["name"]
+					var username = data["username"]
+					$('#my_name').text(name);
+			      	$('#my_username').append(username);
+
+			      	$('#validate_peep').on('click',function(){
 					var peep_content = $('#new_peep_content').val();
 					var source = $('#peepTemplate').html();
 					var template = Handlebars.compile(source);
 					var context = {
-						name: "Sandrine",
+						name: name,
 						username: username,
 						peepContent: peep_content
 						};
@@ -30,15 +39,17 @@ $( document ).ready(function() {
 					$('#peeps article').last().addClass('peep_list');
 					$('#new_peep_content').val('');	
 				});
-			},
-			error: function(jqXHR, textStatus, errorThrown){
+
+				});
+		      	
+			}),
+			request.fail(function(jqXHR, textStatus, errorThrown){
 				alert('fail');
 				console.log(data);
 				$('#flash').show();
 				$('#close').on('click',function(){
 					$('#flash').hide();
 				});
-			}
-		});
+			});
 	});
 });

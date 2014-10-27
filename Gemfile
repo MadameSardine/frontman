@@ -8,6 +8,8 @@ gem 'rack-flash3'
 gem 'sinatra-partial'
 gem 'json'
 gem 'net-http-persistent'
+gem 'sinatra-jsonp'
+gem 'rest-client'
 
 group :development, :test do
 	gem 'capybara'

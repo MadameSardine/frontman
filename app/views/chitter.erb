@@ -37,11 +37,11 @@
 							<%= partial :flash %>
 						</article>
 						<section id="sign_in_form">
-							<form action="/sessions" method="post">
+							<article class="front_page_form">
 								<p class="form_field"><input type="text" placeholder="Username" name="username" class="user_input" id="username_input"></p>
 								<p class="form_field"><input type="password" placeholder="Password" name="password" class="user_input" id="password_input"></p>
 								<input type="submit" value="Sign in" id="sign_in_button">
-							</form>			
+							</article>
 						</section>
 						<section id="sign_up_form">
 							<h2><strong>New to Chitter? </strong>Sign up</h2>
@@ -75,16 +75,18 @@
 						<section id="peeps">
 							<h1>Peeps</h1>
 							<article class="peep_list">
-						<!-- 		<% @peeps.each do |peep| %>
-										<article>
-										<header>
-											<h3 class="full_name"><%= peep.user.name %></h3>
-											<h3 class="username">@<%= peep.user.username %></h3>
-										</header>
-										<p class="peep_content"><%= peep.content %></p>
-										<a href="#" id="reply_button">Reply</a>
-									</article>
-								<% end %> -->
+								<% if @peeps %>
+									<% @peeps.each do |peep| %>
+											<article>
+											<header>
+												<h3 class="full_name"><%= peep.user.name %></h3>
+												<h3 class="username">@<%= peep.user.username %></h3>
+											</header>
+											<p class="peep_content"><%= peep.content %></p>
+											<a href="#" id="reply_button">Reply</a>
+										</article>
+									<% end %> 
+								<% end %>
 							</article>
 						</section>
 					</section>

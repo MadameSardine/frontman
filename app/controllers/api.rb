@@ -1,6 +1,13 @@
 require 'json'
 
-get '/api/session/:username' do 
+post '/api/sessions/' do 
+	@data = JSON.parse(request.body.read)
+	@user = User.authenticate(params[:username], params[:password])
+	session[:user_id] = @user.id if (@user)
+	@user.to_json
+end
+
+get '/api/sessions/:username' do 
 	@user = User.first(:username => params[:username])
 	@user.to_json
 end

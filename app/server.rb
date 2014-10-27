@@ -4,6 +4,7 @@ require 'rack-flash'
 require 'sinatra/partial'
 require 'json'
 require 'net/http'
+require 'rest-client'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'

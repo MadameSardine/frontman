@@ -2,17 +2,17 @@
 # 	erb :"sessions/new"
 # end
 
-post '/sessions' do
-	username, password = params[:username], params[:password]
-	user = User.authenticate(username, password)
-	if user
-		session[:user_id] = user.id
+# post '/sessions' do
+# 	username, password = params[:username], params[:password]
+# 	user = User.authenticate(username, password)
+# 	if user
+# 		session[:user_id] = user.id
 
-	else
-		flash[:errors] = ["The username and password you entered did not match our records. Please double-check and try again."]
-	end
-	redirect to ('/')
-end
+# 	else
+# 		flash[:errors] = ["The username and password you entered did not match our records. Please double-check and try again."]
+# 	end
+
+# end
 
 delete '/sessions' do
 	flash[:notice] = "Good bye!"
