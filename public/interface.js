@@ -20,9 +20,18 @@ $( document ).ready(function() {
 			request.done(function(data){
 				$.getJSON('/api/sessions/' + username_input, function (data){
 
-					if(data !== null) {
-
+					if(data === null) {
 					console.log(data);
+					$('#flash').show();
+					$('#flash p').text("The username and password you entered did not match our records. Please double-check and try again.");
+					$('#close').on('click',function(){
+					$('#flash').hide();
+					$('#flash p').empty();
+					});
+			    } 
+			    
+			    else {
+			    	console.log(data);
 					$('.logged_out_page').hide();
 					$('.logged_in_page').show();
 					$('.right_nav').show();
@@ -44,15 +53,23 @@ $( document ).ready(function() {
 					$('#peeps').append(template(context));
 					$('#peeps article').last().addClass('peep_list');
 					$('#new_peep_content').val('');	
-				});
+					});	
 
-			    } 
-			    
-			    else {
-					console.log(data);
-					$('#flash').show();
-					$('#close').on('click',function(){
-					$('#flash').hide();
+					$('#sign_out_button').on('click',function(){
+						$.ajax({
+							url: '/api/sessions/',
+							type: "DELETE",
+							data: data,
+							dataType: 'json',
+							contentType: 'application/json',
+							accepts: 'application/json'
+						});
+						$('#flash').show();
+						$('#flash p').text("Good bye");
+						$('.logged_in_page').hide();
+						$('.right_nav').hide();
+						$('.left_nav').hide();
+						$('.logged_out_page').show();
 					});
 			    }	
 
