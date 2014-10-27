@@ -3,8 +3,16 @@ require 'json'
 post '/api/sessions/' do 
 	@data = JSON.parse(request.body.read)
 	@user = User.authenticate(params[:username], params[:password])
-	session[:user_id] = @user.id if (@user)
+	
+	if @user
+		session[:user_id] = @user.id
+	
+	else
+		flash[:errors] = ["The username and password you entered did not match our records. Please double-check and try again."]
+		@user = nil
+	end
 	@user.to_json
+
 end
 
 get '/api/sessions/:username' do 

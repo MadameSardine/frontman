@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 	$('.logged_in_page').hide();
+	$('.right_nav').hide();
+	$('.left_nav').hide();
 
 	$('#sign_in_button').on('click',function(){
 		var username_input = $('#username_input').val();
@@ -18,9 +20,13 @@ $( document ).ready(function() {
 			request.done(function(data){
 				$.getJSON('/api/sessions/' + username_input, function (data){
 
+					if(data !== null) {
+
 					console.log(data);
 					$('.logged_out_page').hide();
 					$('.logged_in_page').show();
+					$('.right_nav').show();
+					$('.left_nav').show();
 					var name = data["name"]
 					var username = data["username"]
 					$('#my_name').text(name);
@@ -40,8 +46,18 @@ $( document ).ready(function() {
 					$('#new_peep_content').val('');	
 				});
 
+			    } 
+			    
+			    else {
+					console.log(data);
+					$('#flash').show();
+					$('#close').on('click',function(){
+					$('#flash').hide();
+					});
+			    }	
+
 				});
-		      	
+	
 			}),
 			request.fail(function(jqXHR, textStatus, errorThrown){
 				alert('fail');
