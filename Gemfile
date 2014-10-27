@@ -6,6 +6,8 @@ gem 'dm-postgres-adapter'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 gem 'sinatra-partial'
+gem 'json'
+gem 'net-http-persistent'
 
 group :development, :test do
 	gem 'capybara'

@@ -1,10 +1,11 @@
 
 <% if flash[:errors]  && !flash[:errors].empty? %>
-	Sorry, there were the following problem(s) with the form:
+	Sorry, there were the following problem(s):
 	<ul>
 		<% flash[:errors].each do |error| %>
 			<li><%= error %></li>
 		<% end %>
 	</ul>
 <% end %>
+<div id="close"><a href="#">x</a></div>
 

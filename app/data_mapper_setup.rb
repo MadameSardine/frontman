@@ -4,6 +4,6 @@ require_relative 'models/reply'
 
 env = ENV["RACK_ENV"] || "development"
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] ||"postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] ||"postgres://localhost/frontman_#{env}")
 
 DataMapper.finalize
