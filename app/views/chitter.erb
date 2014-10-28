@@ -14,7 +14,7 @@
 					<img src="/images/twitter_logo.png" id="twitter_icon"/>
 					<nav class="left_nav" class="logged_in_page">
 						<ul>
-							<li id="home"><a href="/"><img src="/images/home.png" id="home_icon"/>Home</a></li>
+							<li id="home"><a href="#"><img src="/images/home.png" id="home_icon"/>Home</a></li>
 							<li><a href="#">Discover</a></li>
 						</ul>
 					</nav>
@@ -34,7 +34,7 @@
 							<p>Connect with your Makers — and other fascinating people. Get in-the-moment updates on the codes that interest you. And watch events unfold, in real time, from every angle.</p>
 						</section>
 						<article id="flash">
-							<p></p>
+							<p>	<%= flash[:notice] %></p>
 							<div id="close"><a href="#">x</a></div>
 						</article>
 						<section id="sign_in_form">
@@ -46,16 +46,16 @@
 						</section>
 						<section id="sign_up_form">
 							<h2><strong>New to Chitter? </strong>Sign up</h2>
-							<form action="/users" method="post">
-								<p class="form_field"><input name="name" type="text" placeholder="Name"  class="user_input"  ></p>
-								<p class="form_field"><input name="username" type="text" placeholder="Username"  class="user_input"> </p>
-								<p class="form_field"><input name="email" type="text" placeholder="Email"  class="user_input">
+							<article class="front_page_form">
+								<p class="form_field"><input name="name" type="text" placeholder="Name" id="new_name" class="user_input"  ></p>
+								<p class="form_field"><input name="username" type="text" placeholder="Username" id="new_username" class="user_input"> </p>
+								<p class="form_field"><input name="email" type="text" placeholder="Email" id="new_email" class="user_input">
 								</p>
-								<p class="form_field"><input name="password" placeholder="Password" type="password" class="user_input" ></p>
-								<p class="form_field"><input name="password_confirmation" placeholder="Confirm password" type="password" class="user_input" >
+								<p class="form_field"><input name="password" placeholder="Password" type="password" id="new_password" class="user_input" ></p>
+								<p class="form_field"><input name="password_confirmation" placeholder="Confirm password" type="password" id="new_password_confirmation" class="user_input" >
 								</p>
 								<p><input type="submit" value="Sign up for Chitter" id="sign_up_button"></p>
-							</form>
+							</article>
 						</section>
 					</section>
 					<section class="logged_in_page">
@@ -75,20 +75,18 @@
 						</section>
 						<section id="peeps">
 							<h1>Peeps</h1>
-							<article class="peep_list">
-								<% if @peeps %>
-									<% @peeps.each do |peep| %>
-											<article>
-											<header>
-												<h3 class="full_name"><%= peep.user.name %></h3>
-												<h3 class="username">@<%= peep.user.username %></h3>
-											</header>
-											<p class="peep_content"><%= peep.content %></p>
-											<a href="#" id="reply_button">Reply</a>
-										</article>
-									<% end %> 
-								<% end %>
-							</article>
+							<% if @peeps %>
+								<% @peeps.each do |peep| %>
+										<article class="peep_list">
+										<header>
+											<h3 class="full_name"><%= peep.user.name %></h3>
+											<h3 class="username">@<%= peep.user.username %></h3>
+										</header>
+										<p class="peep_content"><%= peep.content %></p>
+										<a href="#" class="reply_button">Reply</a>
+									</article>
+								<% end %> 
+							<% end %>
 						</section>
 					</section>
 				</section>
@@ -100,7 +98,7 @@
 					<h3 class="username">@{{username}}</h3>
 				</header>
 				<p class="peep_content">{{peepContent}}</p>
-				<a href="#" id="reply_button">Reply</a>
+				<a href="#" class="reply_button">Reply</a>
 			</article>
 		</template>
 		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>

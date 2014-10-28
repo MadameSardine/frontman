@@ -5,16 +5,26 @@ post '/api/sessions/' do
 	@user.to_json
 end
 
-get '/api/peep' do 
-	@peeps = Peep.all
-    @peeps.to_json
+post '/api/peeps/' do 
+	@data = JSON.parse(request.body.read)
+	@user = User.first(:username => @data["username"])
+	Peep.create(:content => @data["content"], :user => @user, :timestamp => Time.now)
 end
 
-get '/api/reply/:peep_id' do
-	@replies = Reply.all(:peep_id => peep.id)
-	@replies.to_json
+post '/api/users/' do 
+	@data = JSON.parse(request.body.read)
+	@user = User.new(:username => @data["username"],
+				:email => @data["email"],
+				:name => @data["name"],
+				:password => @data["password"],
+				:password_confirmation => 
+				@data["password_confirmation"])
+	if @user.save
+		session[:user_id] = @user.id	
+	else	
+		@user = nil
+	end
+	@user.to_json
+	
 end
 
-delete '/api/sessions/' do
-	session[:user_id] = nil
-end

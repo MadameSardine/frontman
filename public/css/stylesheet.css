@@ -11,10 +11,6 @@ body{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-/*.logged_in_page{
-	display: none;
-}*/
-
 /*===========WELCOME MSG==============*/
 #welcome_message{
 	height: 410px;
@@ -381,7 +377,7 @@ body{
 	border-radius: 0 0 5px 5px;
 }
 
-#new_peep_content{
+#new_peep_content, #new_reply_content{
 	color: #8899a6;
 	font-size: 14px;
 	padding: 6px 8px 5px;
@@ -400,7 +396,7 @@ body{
 	width: 70%;
 }
 
-#validate_peep{
+#validate_peep, #validate_reply{
 	text-decoration: none;
 	color: #66757f;
 	padding: 0 14px 0 4px;
@@ -474,14 +470,33 @@ body{
 	color: #292f33;
 }
 
-#reply_button{
-	margin-top: 3px;
-}
-
 .peep_list a{
 	text-decoration: none;
 	color: #66757f;
 }
+
+.reply_button{
+	display: block;
+	margin-top: 3px;
+	padding: 3px;
+}
+
+.reply_window{
+	background-color: #E5F2F7;
+	display: none;
+	margin-left: -10px;
+	padding: 10px;
+	border-top: 1px solid #e1e8ed;
+	border-bottom: 1px solid #e1e8ed;
+}
+
+.reply_window form{
+	display: block;
+	font-size: 12px;
+
+}
+
+
 
 
 
