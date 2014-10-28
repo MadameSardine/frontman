@@ -112,7 +112,7 @@ body{
 	line-height: 20px;
 }
 
-#sign_in_button, #sign_up_button{
+#sign_in_button{
 	box-shadow: 0 1px 0 #fff;
 	height: 30px;
 	line-height: 11px;
@@ -131,10 +131,24 @@ body{
 	margin-bottom: 12px;
 }
 
-/*#sign_up_button{
+#sign_up_button{
 	background-color: #ffac33;
 	background-image: linear-gradient(#ffcc4d,#ffac33);
-}*/
+	border-color: #f1a02a;
+	color: #292f33;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	border: 1px solid #e1e8ed;
+	border-radius: 4px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 16px;
+	position: relative;
+	float: right;
+	margin-bottom: 12px;
+	width: auto;
+}
 
 #flash{
 	position: fixed;
