@@ -1,9 +1,51 @@
-$( document ).ready(function() {
+function showLoggedOutPage(){
+	$('.logged_out_page').show();
 	$('.logged_in_page').hide();
 	$('.right_nav').hide();
 	$('.left_nav').hide();
-	$('.user_input').val('');
+	$('.user_input').val('');	
+}
 
+function showLoggedInPage(){
+	$('.logged_out_page').hide();
+	$('.logged_in_page').show();
+	$('.right_nav').show();
+	$('.left_nav').show();
+	$('.user_input').val('');	
+}
+
+function passwordNoMatchErrorMessage(){
+	$('#flash').show();
+	$('#flash p').text("Passwords don't match.");
+	$('.user_input').val('');
+}
+
+function loginCredentialsError(){
+	$('#flash').show();
+	$('#flash p').text("The username and password you entered did not match our records. Please double-check and try again.");
+	$('.user_input').val('');
+}
+
+function loginCredentialsAlreadyUsed(){
+	$('#flash').show();
+	$('#flash p').text("The username or the email is already used.");
+	$('.user_input').val('');
+}
+
+function goodByeMessage(){
+	$('#flash').show();
+	$('#flash p').text("Good bye");
+}
+
+function closeFlashWindow(){
+	$('#flash').hide();
+	$('#flash p').empty();
+}
+
+$( document ).ready(function() {
+
+	showLoggedOutPage();
+	
 	var name
 	var username
 
@@ -17,9 +59,7 @@ $( document ).ready(function() {
 		var data = JSON.stringify(javascriptData);
 
 		if (password !== password_confirmation){
-			$('#flash').show();
-			$('#flash p').text("Passwords don't match.");
-
+			passwordNoMatchErrorMessage()
 		}
 
 		else{
@@ -32,23 +72,15 @@ $( document ).ready(function() {
 			contentType: 'application/json',
 			accepts: 'application/json',
 			success: function(json){
-				console.log(json)
 				if(json === null){
-					$('#flash').show();
-					$('#flash p').text("The username or the email is already used.");
+					loginCredentialsAlreadyUsed();
 				}
 				else {
-					console.log(json);
-					$('.logged_out_page').hide();
-					$('.logged_in_page').show();
-					$('.right_nav').show();
-					$('.left_nav').show();
 					name = json["name"]
-					console.log(name)
 					username = json["username"]
 					$('#my_name').text(name);
 			      	$('#my_username').text("@" + username);
-			      	$('.user_input').val('');
+			      	showLoggedInPage();
 					}
 				}
 			})
@@ -71,40 +103,28 @@ $( document ).ready(function() {
 			success: function(json){
 
 				if(json === null){
-					$('#flash').show();
-					$('#flash p').text("The username and password you entered did not match our records. Please double-check and try again.");
+					loginCredentialsError();
 				}
 				else {
 					console.log(json);
-					$('.logged_out_page').hide();
-					$('.logged_in_page').show();
-					$('.right_nav').show();
-					$('.left_nav').show();
 					name = json["name"]
 					console.log(name)
 					username = json["username"]
 					$('#my_name').text(name);
 			      	$('#my_username').text("@" + username);
-			      	$('.user_input').val('');
+			      	showLoggedInPage();
 				}
 			}
 		})
 	});
 
 	$('#sign_out_button').on('click',function(){
-		$('.user_input').empty();
-		$('#flash').show();
-		$('#flash p').text("Good bye");
-		$('.logged_in_page').hide();
-		$('.right_nav').hide();
-		$('.left_nav').hide();
-		$('.logged_out_page').show();
+		showLoggedOutPage();
+		goodByeMessage();
 	});
 	
-
 	$('#close').on('click',function(){
-		$('#flash').hide();
-		$('#flash p').empty();
+		closeFlashWindow();
 	});
 
 	$('#validate_peep').on('click',function(){
@@ -132,8 +152,6 @@ $( document ).ready(function() {
 			accepts: 'application/json'
 		});
 	});
-
-
 });
 
 
