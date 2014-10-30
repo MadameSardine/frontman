@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User wants to reply to peeps" do 
+feature "User wants to reply to peeps" , js: true do 
 
 	before(:each) {
 		Peep.create(:content => "Today is a good day",
@@ -22,26 +22,7 @@ feature "User wants to reply to peeps" do
 
 	scenario "when logged in I should be able to reply" do 
 		log_in("MadameSardine", "password")
-		expect(page).to have_content("reply")
-	end
-
-	scenario "not possible when not logged in" do 
-		visit '/'
-		expect(page).not_to have_content("reply")
-	end
-
-	scenario "should see reply" do 
-		log_in("MadameSardine", "password")
-		fill_in :reply, :with => "Hello"
-		click_button 'Shoot'
-		expect(page).to have_content("Hello")
-	end
-
-	scenario "should see who posted reply and when" do
-		log_in("MadameSardine", "password")
-		fill_in :reply, :with => "Hello"
-		click_button 'Shoot'
-		expect(page).to have_content("Replied by MadameSardine (Sardine) on")
+		expect(page).to have_content("Reply")
 	end
 
 end

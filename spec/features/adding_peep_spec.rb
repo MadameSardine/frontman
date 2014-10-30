@@ -1,38 +1,24 @@
 require 'spec_helper' 
+require_relative 'helpers/session'
 
-feature "User adds a new peep" do 
+include SessionHelpers
 
-	before(:each) do
-		User.create(:username =>"MadameSardine",
-				:email => "sardine@me.com",
-				:name => "Sardine Tin",
-				:password => "password",
-				:password_confirmation => "password")
-	end
+feature "User adds a new peep" , js: true  do 
 
 	scenario "only if logged in" do
 		visit '/'
-		expect(page).not_to have_content("Post peep")
+		expect(page).not_to have_content("Send")
 	end
 
 	scenario "after signing up" do
-		expect(Peep.count).to eq(0)
-		log_in("MadameSardine", "password")
-		expect(page).to have_content("Post peep")
-		click_link 'Post peep'
-		add_peep("Hello, world")
-		expect(Peep.count).to eq(1)
-		peep = Peep.first
-		expect(peep.content).to eq("Hello, world")
-		expect(peep.timestamp.nil?).to eq(false)
-		expect(peep.user.username).to eq("MadameSardine")
-		expect(peep.user.name).to eq("Sardine Tin")
+		sign_up("test", "test", "test", "test", "test")
+		expect(page).to have_content("Send")
 	end
 
 	def add_peep(content)
-		within('#new-peep') do
+		within('#peep_box') do
 			fill_in "content", :with => content
-			click_button 'Post peep'
+			click_link "validate_peep"
 		end
 	end
 

@@ -8,7 +8,6 @@ require 'rest-client'
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
-
 require_relative 'controllers/application'
 require_relative 'controllers/peeps'
 require_relative 'controllers/api'

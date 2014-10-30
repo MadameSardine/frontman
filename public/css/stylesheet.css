@@ -45,7 +45,6 @@ body{
 	margin-bottom: 11px;
 	width: 300px;
 	display: block;
-
 }
 
 #sign_in_form{
@@ -54,7 +53,6 @@ body{
 
 .front_page_form{
 	margin: 12px 12px 6px;
-}
 }
 
 #sign_up_form{
@@ -257,7 +255,6 @@ body{
 	margin-top: -5px;
 }
 
-
 .right_nav{
 	float: right;
 	text-align: left;
@@ -273,10 +270,9 @@ body{
 	border-radius: 4px
 }
 
-#sign_out_button{
+#sign_out_button {
 	display: block;
 	position: relative;
-	margin-top: 9px;
 	font-size: 13px;
 	font-weight: 500;
 	color: #fff;
@@ -289,8 +285,7 @@ body{
 	border-radius: 4px;
 	padding: 6px 8px;
 	overflow: hidden;
-	margin-bottom: 5px;
-	
+	margin-top: -5px;
 }
 
 /*==========MAIN CONTENT==========*/

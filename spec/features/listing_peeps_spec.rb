@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User browses the list of peeps" do 
+feature "User browses the list of peeps" , js: true do 
 
 	before(:each) {
 		Peep.create(:content => "Today is a good day",
@@ -14,13 +14,14 @@ feature "User browses the list of peeps" do
 
 	scenario "when opening the home page" do
 		visit '/'
+		log_in("MadameSardine", "password")
 		expect(page).to have_content("Today is a good day")
-		expect(page).to have_content("on 2014-10-10T01:00:00+01:00")
 	end
 
 	scenario "and can see who posted the peep" do
 		visit '/'
-		expect(page).to have_content("Posted by MadameSardine (Sardine Tin)")
+		log_in("MadameSardine", "password")
+		expect(page).to have_content("Sardine Tin @MadameSardine")
 	end
 
 end
