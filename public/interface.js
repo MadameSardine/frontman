@@ -6,6 +6,12 @@ function showLoggedOutPage(){
 	$('.user_input').val('');	
 }
 
+function listAllPeeps(){
+	closeFlashWindow();
+	clearTempPeeps();
+	$('#all_peeps').show();
+}
+
 function showLoggedInPage(){
 	$('.logged_out_page').hide();
 	$('.logged_in_page').show();
@@ -62,14 +68,18 @@ function clearTempPeeps(){
 $( document ).ready(function() {
 
 	showLoggedOutPage();
-
 	
 	var name
 	var username
 
-	$('#sign_up_button').on('click',function(){
+	$('#home').on('click',function(){
+		$('#user_peeps').empty();
+		$('#all_peeps').show();
 		closeFlashWindow();
-		clearTempPeeps();
+	});
+
+	$('#sign_up_button').on('click',function(){
+		listAllPeeps();
 		name = $('#new_name').val();
 		username = $('#new_username').val();
 		email = $('#new_email').val();
@@ -111,8 +121,7 @@ $( document ).ready(function() {
 	});
 
 	$('#sign_in_button').on('click',function(){
-		closeFlashWindow();
-		clearTempPeeps();
+		listAllPeeps();
 		var username_input = $('#username_input').val();
 		var password_input = $('#password_input').val();
 		var javascriptData = {"username": username_input, "password": password_input};
@@ -152,7 +161,7 @@ $( document ).ready(function() {
 
 	$('#validate_peep').on('click',function(){
 		closeFlashWindow();
-		$('#user_peeps').empty();
+		$('#all_peeps').show();
 		var peep_content = $('#new_peep_content').val();
 		var source = $('#peepTemplate').html();
 		var template = Handlebars.compile(source);
@@ -182,8 +191,8 @@ $( document ).ready(function() {
 
 	$('#show_peeps').on('click',function(){
 		closeFlashWindow();
-		$('#all_peeps').empty();
-		clearTempPeeps();
+		$('#all_peeps').hide();
+		$('#user_peeps').hide();
 		var profile_name =  $('#profile_name').val();
 		var javascriptData = {"username": profile_name};
 		var data = JSON.stringify(javascriptData);

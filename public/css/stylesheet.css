@@ -334,7 +334,8 @@ body{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	color: #fff;
-	z-index: 1000;
+	z-index: 100;
+	overflow: hidden;
 	position: relative;
 	margin-top: -3em;
 	margin-left: 6px;

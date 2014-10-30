@@ -31,7 +31,7 @@ end
 get '/api/userpeeps/:profile_name' do 
 	@user = User.first(:username => @params[:profile_name])
 	@user_id = @user.id
-	@peeps = Peep.all(:user_id => @user_id)
+	@peeps = Peep.all(:user_id => @user_id, :order => [ :id.desc])
 	@info = [@user, @peeps]
 	@info.to_json
 end
