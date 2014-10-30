@@ -362,17 +362,20 @@ body{
 	color: #66757f;
 }
 
-#peep_box{
+#peep_box, #profile_name_box{
 	border: 1px solid;
 	border-color: rgba(0,132,180,0.25);
 	background-color: #E5F2F7;
 	margin-bottom-1px;
 	padding: 12px;
 	padding: 10px 12px;
+}
+
+#profile_name_box{
 	border-radius: 0 0 5px 5px;
 }
 
-#new_peep_content, #new_reply_content{
+#new_peep_content, #new_reply_content, #profile_name{
 	color: #8899a6;
 	font-size: 14px;
 	padding: 6px 8px 5px;
@@ -391,14 +394,14 @@ body{
 	width: 70%;
 }
 
-#validate_peep, #validate_reply{
+#validate_peep, #validate_reply, #show_peeps{
 	text-decoration: none;
 	color: #66757f;
 	padding: 0 14px 0 4px;
 	position: relative;
 }
 
-#peep_box a:hover{
+#peep_box a:hover, #profile_name_box a:hover {
 	border-bottom: 4px solid #0084b4;
 }
 
@@ -417,7 +420,7 @@ body{
 	overflow: hidden;
 }
 
-#peeps h1{
+#peeps h1, #user_peeps h1{
 	color: #66757f;
 	font-size: 22px;
 	font-weight: 300;
@@ -429,7 +432,7 @@ body{
 	border-radius: 5px 5px 0 0;
 }
 
-#peeps h2 {
+#peeps h2, #user_peeps h2{
 	position: relative;
 	top: -1px;
 	font-size: 13px;
